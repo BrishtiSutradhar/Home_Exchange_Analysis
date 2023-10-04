@@ -17,6 +17,6 @@ SELECT
   IFNULL(codeCountry,'unknown')AS codeCountry,
   IFNULL(countryName,'unknown')AS countryName,
 FROM
-  brishti-project.home_exchange.Add_country_code_in_subs
+`home_exchange.subscriptions_2`
 ORDER BY
   user_id DESC
