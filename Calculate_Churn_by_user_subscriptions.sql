@@ -6,7 +6,8 @@
 
 WITH MaxDate AS (
     -- This subquery finds the maximum subscription_date across the entire dataset.
-    SELECT MAX(subscription_date) AS max_subscription_date FROM brishti-project.home_exchange.subscriptions
+    SELECT MAX(subscription_date) AS max_subscription_date FROM `lewagon-final-project-397408.home_exchange.subscriptions`
+
 )
 
 SELECT 
@@ -35,7 +36,7 @@ SELECT
     -- Contient
     
 FROM 
-   brishti-project.home_exchange.subscriptions
+  `lewagon-final-project-397408.home_exchange.subscriptions`
 GROUP BY 
     user_id
 ORDER BY 
@@ -64,4 +65,4 @@ ORDER BY
   IFNULL (department,'unknown') AS department,
   IFNULL (city,'unknown') AS city
 FROM
-  brishti-project.home_exchange.Churn_by_user_subscriptions
+ home_exchange.120_churn_by_user
