@@ -25,7 +25,8 @@ results = pd.read_gbq(query, project_id = project_id)
 results
 
 results.describe()
--
+#--Churn By home_request & apartment_request
+
 results[['home_request', 'apartment_request', 'other_home_type_request', 'successful_count']]
 
 people_who_churn = results[results['churn'] == 1]
@@ -70,6 +71,9 @@ sns.barplot(df, x ='Column_Name', y ='Value')
 
 people_who_not_churn = people_who_not_churn[['churn', 'user_id', 'home_request', 'apartment_request']]
 people_who_churn = people_who_churn[['churn', 'user_id', 'home_request', 'apartment_request']]
+
+#--chi2_ Statictical Test
+
 combined_df = pd.concat([people_who_not_churn, people_who_churn])
 
 combined_df = pd.concat([people_who_not_churn, people_who_churn])
@@ -85,6 +89,8 @@ print(f"P-value: {p}")
 
 """
 My p-value is less than my significance level(0.05), but chart is saying that the type of home is not associated with whether people left or not.So I fail to reject the null hypothesis.There is not a statistically significant relationship between "type_of_home" and "churn." So the type of home is not associated with whether people left or not."""
+
+#--Churn By primary_residence_request & secondary_residence_request
 
 results[['primary_residence_request','secondary_residence_request','successful_count']]
 
@@ -131,6 +137,9 @@ sns.barplot(df, x ='Column_Name', y ='Value')
 
 people_who_not_churn = people_who_not_churn[['churn', 'user_id', 'primary_residence_request', 'secondary_residence_request']]
 people_who_churn = people_who_churn[['churn', 'user_id', 'primary_residence_request', 'secondary_residence_request']]
+
+#--chi2_Statistical Test
+
 combined_df = pd.concat([people_who_not_churn, people_who_churn])
 
 combined_df = pd.concat([people_who_not_churn, people_who_churn])
@@ -146,6 +155,8 @@ print(f"P-value: {p}")
 
 """
 My p-value is less than my significance level(0.05), but chart is saying that the type of residence is not associated with whether people left or not.So I fail to reject the null hypothesis.There is not a statistically significant relationship between "type_of_residence" and "churn." So the type of residence is not associated with whether people left or not."""
+
+#--Churn By Reciprocal & Non_Reciprocal
 
 results[['reciprocal','non_reciprocal','successful_count']]
 
@@ -191,6 +202,9 @@ sns.barplot(df, x ='Reciprocal_&_Non_Reciprocal_Not_Churn_difference', y ='Not_C
 
 people_who_not_churn = people_who_not_churn[['churn', 'user_id', 'reciprocal', 'non_reciprocal']]
 people_who_churn = people_who_churn[['churn', 'user_id', 'reciprocal', 'non_reciprocal']]
+
+#--Statistical Test
+
 combined_df = pd.concat([people_who_not_churn, people_who_churn])
 
 combined_df = pd.concat([people_who_not_churn, people_who_churn])
