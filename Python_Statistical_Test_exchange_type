@@ -25,7 +25,7 @@ results = pd.read_gbq(query, project_id = project_id)
 results
 
 results.describe()
-
+-
 results[['home_request', 'apartment_request', 'other_home_type_request', 'successful_count']]
 
 people_who_churn = results[results['churn'] == 1]
